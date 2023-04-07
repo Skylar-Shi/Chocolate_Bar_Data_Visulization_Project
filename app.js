@@ -51,7 +51,7 @@ var question1=function(filePath){
         height = 600 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         let padding_new = 100;
-        var svg = d3.select("#q2_plot")
+        var svg = d3.select("#q1_plot")
                     .append("svg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom+padding_new )
@@ -75,9 +75,9 @@ var question1=function(filePath){
         var xScale = d3.scaleLinear()
             .domain([min_v, max_v])
             .range([padding, width-padding]);
-        var x_axis = d3.axisBottom(xScale);
-        svg.append("g").call(x_axis)
-            .attr("class", "x_axis")
+        var x_axis_1 = d3.axisBottom(xScale);
+        svg.append("g").call(x_axis_1)
+            .attr("class", "x_axis_1")
             .attr("transform","translate(0, 510)")
         // Add Y axis
         let padding_inner = 0.5
@@ -107,7 +107,7 @@ var question1=function(filePath){
         let padding4 = -30;
         let padding5 = -30
         //Circles -> start at X=0
-        var Tooltip = d3.select("#q2_plot")
+        var Tooltip = d3.select("#q1_plot")
                 .append("div")
                 .style("opacity", 0)
                 .attr("class", "tooltip")
@@ -129,9 +129,9 @@ var question1=function(filePath){
             .attr("stroke", "#563129")
             .on("mouseover", function(e, d){
                 //console.log(d);
-                Tooltip.transition().duration(50).style("opacity", 0.9);
+                Tooltip.transition("showtool").duration(50).style("opacity", 0.9);
                                 //create method chain for tooltip
-                d3.select(this).transition().duration(50)
+                d3.select(this).transition("showtool").duration(50)
                             .attr("r", "20")
                             .style("fill", "#64442D")
                             .style("stroke", "black")
@@ -148,8 +148,8 @@ var question1=function(filePath){
                     })
                 .on("mouseout", function (e, d) {
                         //create method chain for tooltip
-                        Tooltip.transition().duration(50).style("opacity", 0);
-                        d3.select(this).transition().duration(50)
+                        Tooltip.transition("showtool").duration(50).style("opacity", 0);
+                        d3.select(this).transition("showtool").duration(50)
                         .attr("r", "7")
                         .style("fill", "#A27C61")
                         .style("stroke", "#563129")
@@ -225,7 +225,7 @@ var question2=function(filePath){
         height = 400 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         let padding_new = 100;
-        var svg = d3.select("#q1_plot")
+        var svg = d3.select("#q2_plot")
                     .append("svg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom+padding_new )
@@ -289,7 +289,7 @@ var question2=function(filePath){
                 .style("text-anchor", "middle")
                 .attr("fill", 'black')
                 .text("Rating🌟");
-        var radio = d3.select('#radio_q1')
+        var radio = d3.select('#radio_q2')
             .attr('name', 'attribute').on("change", function (d) {
                 current_att= d.target.value;
                 xScale = d3.scaleLinear()

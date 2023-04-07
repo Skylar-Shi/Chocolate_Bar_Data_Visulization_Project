@@ -809,17 +809,32 @@ var question5=function(filePath){
         const projection1  = d3.geoNaturalEarth1()
                                .scale(160)
                                .translate([width / 2, height / 2]);//chain translate and scale
+        const projection2  = //d3.geoAzimuthalEqualArea()
+                                //d3.geoInterruptedHomolosine() 
+                                //d3.geoBonne() 
+                                d3.geoGingery().lobes(500) 
+                                //d3.geoPolyhedralWaterman()
+                                //d3.geoBottomley()
+                                //d3.geoBonne().parallel(70)
+                               .scale(130)
+                               .translate([width / 2, height / 2])
+                               .rotate(150); 
         const pathgeo1 = d3.geoPath()
                                .projection(projection1);
+        const pathgeo2 = d3.geoPath()
+                               .projection(projection2);
         //TO DO: Load JSON file and create the map
+        svg1.append('path')
+                    .attr('class', 'sphere')
+                    .attr('d', pathgeo2({ type: 'Sphere' })).style("fill", "#DBB785");
         const worldmap = d3.json("world.json");
         worldmap.then(function(map){
             console.log(map);
             svg1.selectAll("path")
                 .data(map.features)
-                .enter().append("path").attr("d", pathgeo1)
-                .style("fill", "#F8D994")//"#FAECA5")//"pink")
-                .attr('stroke','white')
+                .enter().append("path").attr("d", pathgeo2)
+                .style("fill", "#F7E9B7")//"#FAECA5")//"pink")
+                .attr('stroke','#C68E63')
                 ;
             var new_data = data.filter(function(d){return d.rating >=3.5});
             console.log(new_data);
@@ -852,8 +867,8 @@ var question5=function(filePath){
             .data(c_by_c)
             .enter()
             .append("circle")
-            .attr("cx", function (d) {return projection1([d[1][2], d[1][1]])[0]; } ) 
-            .attr("cy", function (d) {return projection1([d[1][2], d[1][1]])[1]; } ) 
+            .attr("cx", function (d) {return projection2([d[1][2], d[1][1]])[0]; } ) 
+            .attr("cy", function (d) {return projection2([d[1][2], d[1][1]])[1]; } ) 
             .attr("r", function(d) {return log_s(d[1][0])})//log_s(v_lst[k_lst.indexOf(d[0])]);})
             .attr("class", "center_plot")
             .style('fill', '#4E1B18')

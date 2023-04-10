@@ -16,33 +16,50 @@
 
 <div>
 <h2 class="section">Final Project: What Makes a Great Chocolate Bar? 🍫</h2>
-As a fan of chocolate 🥰, I would like to learn more about what makes a great chocolate bar. In this project, I will explore  how the ratings 🌟 of chocolate from different countries vary and how ingredients ☕️ may influence the ratings.
-<br>
+<p class = "class_indent1">As a chocolate enthusiast 🥰, I would like to learn more about what constitutes a great chocolate bar. 
+In this project, I will explore how the ratings 🌟 of chocolates from different countries vary and how the ingredients used in their production ☕️ may influence these ratings.
+</p>
 
-<div>
-    <h3>Question 1: What are the Best Chocolate Bars Companies?</h3>
-To begin with, I would like to learn about which companies produced high-rated chocolate bars, so that I may purchase their products in future. 
+<div class = "class_indent">
+    <h3>Question 1: Which companies make the best chocolate bars?</h3>
+<p>
+To begin with, I would like to learn about which companies produced highly-rated chocolate bars so that I may purchase their products in the future. 
 <br><br>
-To answer this question, I would like to compute the average rating of each company and find the top 10 companies with the highest averages. I decide to use something similar to a bar chart since bar chart are encoded with line mark and position channel, which is one of the most efficient ways to display information. However, since the top 10 companies all have high rating, if we draw a basic bar chart, there will be multiple bars with similar height, leading to a cluttered figure. To improve the visual effect, I will use a lollipop chart that is a modified form of the basic bar chart. Since we only have 1 value in the chart, I use the same color for all lollipops 🍫.
+To answer this question, 
+I plan to compute the average rating of each chocolate company and identify the top 10 companies with the highest averages. 
+I have decided to use a lollipop chart, 
+which is a modified form of the basic bar chart. 
+While bar charts are effective for displaying information using line marks and position channels, 
+the top 10 companies in this case all have high ratings, 
+which could result in a cluttered figure with multiple bars of similar height. 
+Therefore, the lollipop chart provides a better visual effect. 
+Since there is only one value to be displayed, I will use the same color for all lollipops. 
 <br><br>
-From the plot, we can observe that both <b>Ocelot</b> and <b>Heirloom Cacao Preservation (Zokoko)</b> have the highest average ratings. However, this is my first time hearing of these companies. Hoplefully I will try their products in the spring break ☀️. Feel free to navigate the chart by moving your cursor on each lollipop 🍭！
+From the plot, we can observe that <b>Ocelot</b> and <b>Heirloom Cacao Preservation (Zokoko)</b> have the highest average ratings. 
+However, these are both new companies for me. I hope to try their products during the upcoming spring break ☀️. 
+</p>
     <div id="q1">
     
         </div>
         <h4>Plot:</h4>
+        <p class = "interaction_tips">
+            Feel free to navigate the chart by moving your cursor on each lollipop (each circle) 🍭!
+        </p>
         <div id="q1_plot" class="center_plot">
         </div>
-    <br><br><br>
 </div> 
 
-<div>
-<h3>Question 2: Does Higher Cocoa Percentage and Greater Number of Ingredients Make Better Chocolate Bar?</h3>
-To answer this question, I decide to use scatterplots with points mark and positions (horizontal & vertical) and color channel. Scatterplot will be helpful for exploring correlation between two variables. In addition, I make the dots transparent. Deeper color means more data points. Feel free to click the button to switch between plots.
+<div class = "class_indent">
+<h3>Question 2: Does higher cocoa percentage and greater number of ingredients make better chocolate bars?</h3>
+<p>
+To answer this question, I decided to use scatterplots with point marks and positions (horizontal & vertical) and color channels. Scatterplot are helpful for exploring correlation between two variables. I also made the dots transparent, with deeper colors indicating more data points. 
 <br><br>
-I assumed that a higher cocoa percentage leads to a higher rating, because higher cocoa percentage usually means better quality chocolate bar 🍫. However, from the scatterplot, I found that there is no obvious pattern between cocoa percentage and rating. A chocolate bar with low cocoa percentage can also have a high rating, and a chocloate bar with high cocoa percentage may even have a lower rating! Most high rated chocolate bars seems to have a cocoa percentage between 65% and 80%.
+I assumed that a higher cocoa percentage would lead to a higher rating because a higher percentage usually indicates better quality chocolate bar 🍫. However, after examining the scatterplot, I found that there is no obvious pattern between cocoa percentage and rating. A chocolate bar with low cocoa percentage can also have a high rating, and a chocloate bar with high cocoa percentage may even have a lower rating! Most highly-rated chocolate bars seem to have a cocoa percentage between 65% and 80%.
 <br><br>
-The complexity of making a chocolate bar also seems to have little impact on the chocolates' ratings. The chocolate ratings are almost evenly distributed among various counts of ingredients.
-<br><br>
+It appears that the complexity of making a chocolate bar has little impact on its rating. The chocolate ratings are almost evenly distributed among various ingredient counts, indicating that the number of ingredients has little correlation with the chocolate's rating.
+</p>
+<h4>Plot:</h4>
+<p class = "interaction_tips">Feel free to click the button to switch between the two plots.</p>
     <div id="radio_q2" class="center_plot">
     <input type="radio" id="q2_cocoa" name="attribute" value= "cocoa_percent" checked="checked">
     <label for="Cocoa">Cocoa Percentage</label>
@@ -51,22 +68,22 @@ The complexity of making a chocolate bar also seems to have little impact on the
     </div>
 
 <div id="q2">
-
+    <h4></h4>
     </div>
-    <h4>Plot:</h4>
     <div id="q2_plot" class="center_plot">
     </div><br>
 </div>    
 </div>
 
-<div>
+<div class = "class_indent">
     <h3>Question 3: Popular flavors 🧐
     </h3>
-I am also curious about what are the most popular tastes among the chocolate bars recommended by the chocolate experts (rating >= 3). Maybe next time I can also try these flavors!🥰 I would also like to count the total number of each popular flavor, and see how many times it is the first taste, the second taste, the third taste, and the fourth taste of a chocolate bar.
+<p>I am also curious about what are the most popular tastes among the chocolate bars recommended by the chocolate experts (rating >= 3). Maybe next time I can also try these flavors!🥰 I would also like to count the total number of each popular flavor, and see how many times it is the first taste, the second taste, the third taste, and the fourth taste of a chocolate bar.
 <br><br>
 To answer this question, I decide to use a stacked bar chart with lines mark and positions (horizontal & verticle) and color channels. Stacked bar chart are much more dense than pie chart, and in this question, it is especially helpful when we want to compare the compositions of different tastes. Since first taste, second taste, third taste, and fourth taste are categorical variables, I use some random chocolate colors (color hue) to represent each subcategory.
 <br><br>
-From the stacked bar chart below, we can observe that <b>nutty </b> is the most popular taste in a great chocolate bar. This makes sense, nuts are great complement of dark chocolate! We can also see that the composition of the counts of each taste varies. Although <b>creamy</b> 🍦 is not the most common taste, it has the highest count of first taste. <b>Cocoa</b> ☕️ has the highest count of thrid taste and fourth taste.    
+From the stacked bar chart below, we can observe that <b>nutty </b> is the most popular taste in a great chocolate bar. This makes sense, nuts are great complement of dark chocolate! We can also see that the composition of the counts of each taste varies. Although <b>creamy</b> 🍦 is not the most common taste, it has the highest count of first taste. <b>Cocoa</b> ☕️ has the highest count of thrid taste and fourth taste.
+</p>    
 <div id="q3">
 
     </div>
@@ -75,11 +92,12 @@ From the stacked bar chart below, we can observe that <b>nutty </b> is the most 
     </div>
 </div>  
 
-<div>
+<div class = "class_indent">
     <h3>Question 4: Does high average rating means high overall performance of a chocolate company?</h3>
-In question 1, we learn what are some best companies producing chocolate bars. In this question, I would like to further explore the distribution of high-rated chocolate companies. To achieve this, I find the chocolate bars companies with the top 3 highest average ratings among companies that have more than 20 chocolate bars. I decide to use box plots with lines and points marks and position and color channels since box plots will be helpful for us to compare the spread of the data. I use a sequencial color scale to represent the rating data point. Brighter colors indicates higher ratings.
+<p>In question 1, we learn what are some best companies producing chocolate bars. In this question, I would like to further explore the distribution of high-rated chocolate companies. To achieve this, I find the chocolate bars companies with the top 3 highest average ratings among companies that have more than 20 chocolate bars. I decide to use box plots with lines and points marks and position and color channels since box plots will be helpful for us to compare the spread of the data. I use a sequencial color scale to represent the rating data point. Brighter colors indicates higher ratings.
 <br><br>
-We can observe that companies with high average rating generally tend to have a high overall performance. Most of their ratings are scattered around the center. However, their distributions may varies.       
+We can observe that companies with high average rating generally tend to have a high overall performance. Most of their ratings are scattered around the center. However, their distributions may varies.
+</p>       
     <div id="q5">
     
         </div>
@@ -90,13 +108,14 @@ We can observe that companies with high average rating generally tend to have a 
     <br><br>
  </div> 
 
-<div>
+<div class = "class_indent">
     <h3>Question 5: Where do the best chocolate bars come from? 🗺️</h3>
-After learning about chocolate flavors, I also want to learn more about the ingredients of great chocolate bars. Specifically, do ingredients from certain regions tend to have better cocoa beans? 
+<p>After learning about chocolate flavors, I also want to learn more about the ingredients of great chocolate bars. Specifically, do ingredients from certain regions tend to have better cocoa beans? 
 <br><br>
 To answer this question, we can find the most common chocolate bean origin countries of the chocolate bars that are recommended by the chocolate experts (with rating >= 3.5 out of 5). I decide to use a map with points mark and position and size channel. Each point represent the number of high rating chocolate bars in a certain country encoded by the circle size. Since we only have one value, I use the same color for all circles.
 <br><br>
 We can observe from the graph that <b>Venezuela</b> is the country of beans origin that has the highest number of tasty chocolate bars. Many countries from Middle America seem to have plentiful high-quality cocoa beans that produce great chocolate 💗!
+</p>
     <div id="q4">
     
         </div>

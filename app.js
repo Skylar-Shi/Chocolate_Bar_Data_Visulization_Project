@@ -47,8 +47,8 @@ var question1=function(filePath){
     }
     d3.csv(filePath, rowConverter).then(function(data){
         var margin = {top: 50, right: 30, bottom: 30, left: 220},
-        width = 650 - margin.left - margin.right,
-        height = 600 - margin.top - margin.bottom;
+        width = 690 - margin.left - margin.right,
+        height = 560 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         let padding_new = 100;
         var svg = d3.select("#q1_plot")
@@ -78,7 +78,7 @@ var question1=function(filePath){
         var x_axis_1 = d3.axisBottom(xScale);
         svg.append("g").call(x_axis_1)
             .attr("class", "x_axis_1")
-            .attr("transform","translate(0, 510)")
+            .attr("transform","translate(0, 475)")
         // Add Y axis
         let padding_inner = 0.5
         var yScale = d3.scaleBand()
@@ -161,7 +161,9 @@ var question1=function(filePath){
                 .attr("y", padding5)
                 .attr("text-anchor", "middle")
                 .style("font-size", "18px")
-                .text("Top 15 Heigest Rated Chocolate Bars Companies");
+                .text("Top 15 Heigest Rated Chocolate Bars Companies")
+                .style("font-family", 'Chalkduster')
+                .style("fill", "#64442D");
         var x_lable = svg.append("text")
                 .attr("transform", "translate(" + (width/2) + " ," + (height-padding4) + ")")
                 .style("text-anchor", "middle")
@@ -276,7 +278,9 @@ var question2=function(filePath){
                 .attr("y", padding5)
                 .attr("text-anchor", "middle")
                 .style("font-size", "18px")
-                .text("Cocoa Percentage and Rating Scatterplot");
+                .text("Cocoa Percentage and Rating Scatterplot")
+                .style("font-family", 'Chalkduster')
+                .style("fill", "#64442D");
         var x_lable = svg.append("text")
                 .attr("transform", "translate(" + (width/2) + " ," + (height-padding4) + ")")
                 .style("text-anchor", "middle")
@@ -527,9 +531,11 @@ var question3=function(filePath){
             .attr("x", svgwidth/2)
             .attr("y", padding)
             .attr("text-anchor", "middle")
-            .style("font-size", "20px")
+            .style("font-size", "19px")
             .attr("fill", 'black')
-            .text("Top 10 Chocolate Tastes from Great Chocolate Bars");
+            .text("Top 10 Chocolate Tastes from Great Chocolate Bars")
+            .style("font-family", 'Chalkduster')
+            .style("fill", "#64442D");
         groups.append("text")
             .attr("transform", "translate(" + (svgwidth/2) + " ," + (svgheight) + ")")
             .style("text-anchor", "middle")
@@ -545,7 +551,7 @@ var question3=function(filePath){
         var legend = d3.legendColor()
             .scale(colorScale);
         svg.append("g")
-            .attr("transform", "translate(650,50)")
+            .attr("transform", "translate(650,80)")
             .call(legend);
 
         })
@@ -745,9 +751,10 @@ var question4=function(filePath){
             .attr("x", width/2)
             .attr("y", padding)
             .attr("text-anchor", "middle")
-            .style("font-size", "20px")
-            .attr("fill", 'black')
-            .text("Chocolate Bars Companies Rating Distributions");
+            .style("font-size", "17px")
+            .text("Chocolate Bars Companies Rating Distributions")
+            .style("font-family", 'Chalkduster')
+            .style("fill", "#64442D");
         svg.append("text")
             .attr("transform", "translate(" + (width/2) + " ," + (height+40) + ")")
             .style("text-anchor", "middle")
@@ -800,14 +807,14 @@ var question5=function(filePath){
     }
     d3.csv(filePath, rowConverter).then(function(data){
         console.log(data);
-        var width = 1000;
-        var height = 800;
+        var width = 900;
+        var height = 600;
         var svg1 = d3.select("#q4_plot")
                      .append("svg").attr("width", width)
                      .attr("height", height)
                      .attr("class", "center_plot");
         const projection1  = d3.geoNaturalEarth1()
-                               .scale(160)
+                               .scale(100)
                                .translate([width / 2, height / 2]);//chain translate and scale
         const projection2  = //d3.geoAzimuthalEqualArea()
                                 //d3.geoInterruptedHomolosine() 
@@ -816,7 +823,7 @@ var question5=function(filePath){
                                 //d3.geoPolyhedralWaterman()
                                 //d3.geoBottomley()
                                 //d3.geoBonne().parallel(70)
-                               .scale(130)
+                               .scale(100)
                                .translate([width / 2, height / 2])
                                .rotate(150); 
         const pathgeo1 = d3.geoPath()
@@ -834,8 +841,7 @@ var question5=function(filePath){
                 .data(map.features)
                 .enter().append("path").attr("d", pathgeo2)
                 .style("fill", "#F7E9B7")//"#FAECA5")//"pink")
-                .attr('stroke','#C68E63')
-                ;
+                .attr('stroke','#C68E63');
             var new_data = data.filter(function(d){return d.rating >=3.5});
             console.log(new_data);
             let num_excellent_bar = new_data.length;
@@ -870,7 +876,7 @@ var question5=function(filePath){
             .attr("cx", function (d) {return projection2([d[1][2], d[1][1]])[0]; } ) 
             .attr("cy", function (d) {return projection2([d[1][2], d[1][1]])[1]; } ) 
             .attr("r", function(d) {return log_s(d[1][0])})//log_s(v_lst[k_lst.indexOf(d[0])]);})
-            .attr("class", "center_plot")
+            //.attr("class", "center_plot")
             .style('fill', '#4E1B18')
             .attr('stroke','#64442D')
             .attr('fill-opacity', 0.5)
@@ -898,19 +904,30 @@ var question5=function(filePath){
                         .style("stroke-width", 1)
                         .style("opacity", 1)
                     });
-            let padding = 80
+            let padding = 20;
+            let padding22 = 60
             svg1.append("text")
                 .attr("x", width/2)
                 .attr("y", padding)
                 .attr("text-anchor", "middle")
-                .style("font-size", "20px")
-                .text("Bean Origins of Excellent Chocolate Bars World Map");
+                .style("font-size", "21px")
+                .text("Bean Origins of Excellent Chocolate Bars World Map")
+                .style("font-family", 'Chalkduster')
+                .style("fill", "#64442D");
+            svg1.append("text")
+                .attr("x", width/2)
+                .attr("y", padding22)
+                .attr("text-anchor", "middle")
+                .style("font-size", "17px")
+                .text("Feel free to navigate the map by moving your cursor on each circle!")
+                .style("font-family", 'Chalkduster')
+                .style("fill", "#eb95a9");
             var linearSize = d3.scaleLinear()
                                .domain([min_v,max_v])
                                .range([min_range, max_range]);
             svg1.append("g")
                 .attr("class", "legendSize")
-                .attr("transform", "translate(620, 120)");
+                .attr("transform", "translate(610, 100)");
             let l_padding = 25
             var legendSize = d3.legendSize()
                 .scale(linearSize)

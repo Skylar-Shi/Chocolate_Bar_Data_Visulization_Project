@@ -823,7 +823,7 @@ var question5=function(filePath){
                                 //d3.geoPolyhedralWaterman()
                                 //d3.geoBottomley()
                                 //d3.geoBonne().parallel(70)
-                               .scale(100)
+                               .scale(110)
                                .translate([width / 2, height / 2])
                                .rotate(150); 
         const pathgeo1 = d3.geoPath()
@@ -904,8 +904,8 @@ var question5=function(filePath){
                         .style("stroke-width", 1)
                         .style("opacity", 1)
                     });
-            let padding = 20;
-            let padding22 = 60
+            let padding = 15;
+            let padding22 = 40;
             svg1.append("text")
                 .attr("x", width/2)
                 .attr("y", padding)
@@ -918,17 +918,17 @@ var question5=function(filePath){
                 .attr("x", width/2)
                 .attr("y", padding22)
                 .attr("text-anchor", "middle")
-                .style("font-size", "17px")
+                .style("font-size", "18px")
                 .text("Feel free to navigate the map by moving your cursor on each circle!")
-                .style("font-family", 'Chalkduster')
-                .style("fill", "#eb95a9");
+                //.style("font-family", 'Chalkduster')
+                .style("fill", "#4E1B18");
             var linearSize = d3.scaleLinear()
                                .domain([min_v,max_v])
                                .range([min_range, max_range]);
             svg1.append("g")
                 .attr("class", "legendSize")
-                .attr("transform", "translate(610, 100)");
-            let l_padding = 25
+                .attr("transform", "translate(645, 120)");
+            let l_padding = 20
             var legendSize = d3.legendSize()
                 .scale(linearSize)
                 .shape('circle')

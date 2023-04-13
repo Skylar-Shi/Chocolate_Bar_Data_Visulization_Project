@@ -51,8 +51,7 @@ var question1=function(filePath){
         height = 560 - margin.top - margin.bottom;
         // append the svg object to the body of the page
         let padding_new = 100;
-        var svg = d3.select("#q1_plot")
-                    .append("svg")
+        var svg = d3.select("#mySvg")
                     .attr("width", width + margin.left + margin.right)
                     .attr("height", height + margin.top + margin.bottom+padding_new )
                     .append("g")
@@ -99,7 +98,6 @@ var question1=function(filePath){
                       .append("line")
                       .attr("x1", xScale(min_v))
                       .attr("x2", xScale(min_v))
-                     //.attr("x1", function(d) {return xScale(d[1]); })
                       .attr("y1", function(d) { return yScale(d[0]); })
                       .attr("y2", function(d) { return yScale(d[0]); })
                       .attr("stroke", "grey")
@@ -122,21 +120,24 @@ var question1=function(filePath){
             .enter()
             .append("circle")
             .attr("cx", xScale(min_v) )
-            //.attr("cx", function(d) { return xScale(d[1]); })
             .attr("cy", function(d) { return yScale(d[0]); })
-            .attr("r", "7")
+            .attr("r", "12")
             .style("fill", "#A27C61")
-            .attr("stroke", "#563129")
+            //.attr("stroke", "#563129")
+            .style("opacity", 0.8)
             .on("mouseover", function(e, d){
                 //console.log(d);
                 Tooltip.transition("showtool").duration(50).style("opacity", 0.9);
                                 //create method chain for tooltip
                 d3.select(this).transition("showtool").duration(50)
-                            .attr("r", "20")
+                            .attr("r", "25")
                             .style("fill", "#64442D")
+                            .style("fill", console.log(d[0].replace(/[^a-zA-Z]/g, "")))
+                            .style("fill", "url(#"+d[0].replace(/[^a-zA-Z]/g, "")+")")
                             .style("stroke", "black")
                             .style("stroke-width", 2)
                             .style("opacity", 1)
+                            
                 })
                 .on("mousemove", function (e, d) {
                         //create method chain for tooltip
@@ -150,11 +151,12 @@ var question1=function(filePath){
                         //create method chain for tooltip
                         Tooltip.transition("showtool").duration(50).style("opacity", 0);
                         d3.select(this).transition("showtool").duration(50)
-                        .attr("r", "7")
+                        .attr("r", "12")
                         .style("fill", "#A27C61")
-                        .style("stroke", "#563129")
-                        .style("stroke-width", 1)
-                        .style("opacity", 1)
+                        .style("stroke", "none")
+                        //.style("stroke", "#563129")
+                        //.style("stroke-width", 1)
+                        .style("opacity", 0.8)
                     });
         var title = svg.append("text")
                 .attr("x", width/2)
@@ -181,6 +183,7 @@ var question1=function(filePath){
         myCircle
             .transition()
             .duration(duration_1)
+            //.attr("x", function(d) { return xScale(d[1]); })
             .attr("cx", function(d) { return xScale(d[1]); })
 
         myLine

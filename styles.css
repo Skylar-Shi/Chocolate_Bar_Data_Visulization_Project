@@ -44,6 +44,6 @@ p.interaction_tips {
     color: #eb95a9;
     font-family: 'Chalkduster'; 
     font-style: italic;
-    text-align: center;
+    /* text-align: center; */
     /* font-family: cursive; */
 }
